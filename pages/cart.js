@@ -21,14 +21,15 @@ export default function CartPage() {
         {cartCount === 0 ? (
           <div className="bg-white rounded-lg shadow-md p-8 text-center">
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">Your cart is empty.</h2>
-            <p className="text-gray-800 mb-6">Looks like you haven't added any fresh meat to your cart yet.</p>
+            {/* FIX: Replaced 'haven't' with 'haven&apos;t' */}
+            <p className="text-gray-800 mb-6">Looks like you haven&apos;t added any fresh meat to your cart yet.</p>
             <Link href="/" className="inline-block py-3 px-8 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors">
                 Continue Shopping
             </Link>
           </div>
         ) : (
+          // ... rest of the cart page is the same
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            {/* Cart Items List */}
             <div className="lg:col-span-2 bg-white rounded-lg shadow-md">
               <ul className="divide-y divide-gray-200">
                 {cartItems.map((item) => (
@@ -51,8 +52,6 @@ export default function CartPage() {
                 ))}
               </ul>
             </div>
-
-            {/* Order Summary */}
             <div className="lg:col-span-1 bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-bold border-b pb-4 mb-4 text-gray-800">Order Summary</h2>
               <div className="space-y-2 mb-4">

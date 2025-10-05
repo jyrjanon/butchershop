@@ -11,12 +11,12 @@ import { TruckIcon } from '@heroicons/react/24/outline';
 
 // ... (categories and displayCategories arrays remain the same)
 const categories = [
-  { id: '1', name: 'Chicken', imageUrl: 'https://i.postimg.cc/cLD2PZn5/chicken.jpg' },
-  { id: '2', name: 'Mutton', imageUrl: 'https://i.postimg.cc/T3HNC08v/mutton.avif' },
-  { id: '3', name: 'Seafood', imageUrl: 'https://i.postimg.cc/8ctmskD4/seafood.avif' },
-  { id: '4', name: 'Ready to Cook', imageUrl: 'https://i.postimg.cc/ncWqWPLq/readytocook.jpg' },
-  { id: '5', name: 'Pork', imageUrl: 'https://i.postimg.cc/B6hjKjLB/ork.jpg' },
-  { id: '6', name: 'Eggs', imageUrl: 'https://i.postimg.cc/ZqHRGWL7/eggs.avif' },
+  { id: '1', name: 'Chicken', imageUrl: '/images/chicken.jpg' },
+  { id: '2', name: 'Mutton', imageUrl: '/images/mutton.jpg' },
+  { id: '3', name: 'Seafood', imageUrl: '/images/seafood.jpg' },
+  { id: '4', name: 'Ready to Cook', imageUrl: '/images/readytocook.jpg' },
+  { id: '5', name: 'Pork', imageUrl: '/images/pork.jpg' },
+  { id: '6', name: 'Eggs', imageUrl: '/images/eggs.jpg' },
 ];
 
 const displayCategories = [
