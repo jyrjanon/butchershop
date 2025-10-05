@@ -1,6 +1,7 @@
 // pages/cart.js
 import { useCart } from '../context/CartContext';
 import Link from 'next/link';
+import Image from 'next/image'; // <-- Import the Image component
 
 export default function CartPage() {
   const { cartItems, removeFromCart, cartTotal, cartCount } = useCart();
@@ -14,27 +15,31 @@ export default function CartPage() {
           </Link>
         </div>
       </header>
-
       <main className="max-w-4xl mx-auto py-12 px-4">
         <h1 className="text-3xl font-bold mb-8 text-gray-800">Your Shopping Cart</h1>
-        
         {cartCount === 0 ? (
           <div className="bg-white rounded-lg shadow-md p-8 text-center">
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">Your cart is empty.</h2>
-            {/* FIX: Replaced 'haven't' with 'haven&apos;t' */}
             <p className="text-gray-800 mb-6">Looks like you haven&apos;t added any fresh meat to your cart yet.</p>
             <Link href="/" className="inline-block py-3 px-8 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors">
                 Continue Shopping
             </Link>
           </div>
         ) : (
-          // ... rest of the cart page is the same
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2 bg-white rounded-lg shadow-md">
               <ul className="divide-y divide-gray-200">
                 {cartItems.map((item) => (
                   <li key={item.id} className="p-4 flex items-center space-x-4">
-                    <img src={item.imageUrl} alt={item.name} className="w-20 h-20 rounded-md object-cover" />
+                    {/* UPDATED: Replace <img> with <Image> */}
+                    <div className="relative w-20 h-20 rounded-md overflow-hidden">
+                      <Image 
+                        src={item.imageUrl} 
+                        alt={item.name} 
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
                     <div className="flex-grow">
                       <h3 className="font-semibold text-lg text-gray-800">{item.name}</h3>
                       <p className="text-gray-500 text-sm">{item.cut}</p>
@@ -52,6 +57,7 @@ export default function CartPage() {
                 ))}
               </ul>
             </div>
+            {/* ... rest of the page ... */}
             <div className="lg:col-span-1 bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-bold border-b pb-4 mb-4 text-gray-800">Order Summary</h2>
               <div className="space-y-2 mb-4">

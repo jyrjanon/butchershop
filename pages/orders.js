@@ -14,7 +14,6 @@ export default function OrdersPage() {
     if (currentUser) {
       const fetchOrders = async () => {
         const ordersCollection = collection(db, 'orders');
-        // Create a query to get only the orders for the current user
         const q = query(
           ordersCollection, 
           where("userId", "==", currentUser.uid),
@@ -62,7 +61,8 @@ export default function OrdersPage() {
       <main className="max-w-4xl mx-auto py-12 px-4">
         <h1 className="text-3xl font-bold mb-8">My Orders</h1>
         {orders.length === 0 ? (
-          <p>You haven't placed any orders yet.</p>
+          // FIX: Replaced "haven't" with "haven&apos;t"
+          <p>You haven&apos;t placed any orders yet.</p>
         ) : (
           <div className="space-y-6">
             {orders.map(order => (
