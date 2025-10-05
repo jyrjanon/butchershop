@@ -1,15 +1,12 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +20,55 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+textarea {
+  @apply text-gray-900;
+}
+
+/* --- Main Site Light Theme Text Defaults --- */
+.theme-light h1,
+.theme-light h2,
+.theme-light h3,
+.theme-light h4 {
+  @apply text-gray-800;
+}
+
+.theme-light p,
+.theme-light span,
+.theme-light li,
+.theme-light th,
+.theme-light td {
+  @apply text-gray-600;
+}
+
+
+/* --- Admin Panel Dark Theme Text Defaults --- */
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4 {
+  @apply text-white;
+}
+
+.theme-dark p,
+.theme-dark span,
+.theme-dark li,
+.theme-dark th,
+.theme-dark td,
+.theme-dark label {
+  @apply text-gray-300;
+}
+
+/* --- Scrollbar utility --- */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
